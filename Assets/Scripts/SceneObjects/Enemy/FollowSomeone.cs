@@ -16,7 +16,11 @@ public class FollowSomeone : MonoBehaviour
     {
         Vector3 direction = target.position - transform.position;
         direction = direction.normalized;
-        Vector3 velocity = new Vector3(direction.x, 0, direction.z) * moveSpeed;
-        rb.velocity = velocity;
+        
+        Vector3 newVelocity = rb.velocity;
+        newVelocity.x = direction.x * moveSpeed;
+        newVelocity.z = direction.z * moveSpeed;
+        rb.velocity = newVelocity;
+        
     }
 }
