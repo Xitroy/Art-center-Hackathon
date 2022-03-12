@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TriggerEnemy : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,12 @@ public class TriggerEnemy : MonoBehaviour
     void Update()
     {
         
+    }
+    public void OnTriggerEnter (Collider other)
+    {
+        // turning on triggered enemies
+        if (other.gameObject.layer == 6) {
+            other.GetComponent<FollowSomeone>().enabled = true;
+        }
     }
 }
